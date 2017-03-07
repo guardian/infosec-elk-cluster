@@ -412,7 +412,7 @@ Resources:
           # Install Logstash plugins
           /usr/share/logstash/bin/logstash-plugin install logstash-input-kinesis
           # Configure Logstash
-          wget -O /etc/logstash/conf.d/logstash-indexer.conf https://raw.githubusercontent.com/guardian/elk-stack/${ElkConfigVersion}/config/logstash-indexer.conf
+          wget -O /etc/logstash/conf.d/logstash-indexer.conf https://raw.githubusercontent.com/guardian/infosec-elk-stack/master/config/logstash-indexer.conf
           sed -i \
             -e 's,@@KINESIS_STREAM_NAME,${ElkKinesisStream},g' \
             -e 's,@@KINESIS_APPLICATION_NAME,${ElkKinesisDynamoDBTable},g' \
