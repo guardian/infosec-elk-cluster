@@ -125,7 +125,7 @@ Mappings:
 Resources:
   AMI:
     Description: The latest AMI id having referenced amiable for this stack
-    AWS::EC2::Image::Id
+    Type: AWS::EC2::Image::Id
   ElkS3Bucket:
     Type: AWS::S3::Bucket
     Condition: HasS3
