@@ -5,6 +5,9 @@ Parameters:
   Stack:
     Description: Stack applied as a tag
     Type: String
+  AMI:
+    Description: The latest AMI id having referenced amiable for this stack
+    Type: AWS::EC2::Image::Id
   KeyName:
     Default: bootstrap
     Description: Name of an existing EC2 KeyPair for SSH access
@@ -123,9 +126,6 @@ Mappings:
       ESHeapSize: 15g
 
 Resources:
-  AMI:
-    Description: The latest AMI id having referenced amiable for this stack
-    Type: AWS::EC2::Image::Id
   ElkS3Bucket:
     Type: AWS::S3::Bucket
     Condition: HasS3
