@@ -113,26 +113,8 @@ Conditions:
 
 Mappings:
   RegionMap:
-    us-east-1:
-      ImageId: ami-6edd3078
-    us-west-2:
-      ImageId: ami-7c803d1c
-    us-west-1:
-      ImageId: ami-539ac933
     eu-west-1:
-      ImageId: ami-d8f4deab
-    eu-central-1:
-      ImageId: ami-5aee2235
-    ap-southeast-1:
-      ImageId: ami-b1943fd2
-    ap-northeast-1:
-      ImageId: ami-eb49358c
-    ap-southeast-2:
-      ImageId: ami-fe71759d
-    sa-east-1:
-      ImageId: ami-7379e31f
-    cn-north-1:
-      ImageId: ami-b2a97edf
+      !Ref AMI
   InstanceMap:
     t2.medium:
       ESHeapSize: 2g
@@ -144,6 +126,9 @@ Mappings:
       ESHeapSize: 15g
 
 Resources:
+  AMI:
+    Description: The latest AMI id having referenced amiable for this stack
+    AWS::EC2::Image::Id
   ElkS3Bucket:
     Type: AWS::S3::Bucket
     Condition: HasS3
