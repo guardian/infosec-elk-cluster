@@ -112,9 +112,6 @@ Conditions:
   HasSSLCertificate: !Not [!Equals [!Ref PublicLoadBalancerSSLCertificateARN,  '']]
 
 Mappings:
-  RegionMap:
-    eu-west-1:
-      !Ref AMI
   InstanceMap:
     t2.medium:
       ESHeapSize: 2g
@@ -324,7 +321,7 @@ Resources:
   ElkLaunchConfig:
     Type: AWS::AutoScaling::LaunchConfiguration
     Properties:
-      ImageId: !FindInMap [RegionMap, !Ref 'AWS::Region', ImageId]
+      ImageId: !Ref AMI
       SecurityGroups:
       - !Ref ElkSecurityGroup
       InstanceType:
